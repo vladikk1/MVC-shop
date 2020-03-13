@@ -1,5 +1,5 @@
 <?php
-
+var_dump(123);
 // FRONT CONTROLLER
 // Общие настройки
 ini_set('display_errors',1);
