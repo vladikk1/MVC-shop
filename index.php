@@ -1,5 +1,5 @@
 <?php
-var_dump(123);
+
 // FRONT CONTROLLER
 // Общие настройки
 ini_set('display_errors',1);
@@ -12,3 +12,5 @@ require_once (ROOT.'/components/Router.php');
 
 $router = new Router();
 $router->run();
+
+var_dump("Пока");
