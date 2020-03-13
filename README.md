@@ -1,1 +1,1 @@
-"# MVC-shop" 
+"# Shop" 
