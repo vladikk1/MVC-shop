@@ -1,0 +1,8 @@
+AddDefaultCharset utf-8
+
+
+RewriteEngine on
+RewriteBase /
+
+RewriteRule ^(.*)$ index.php
+#php_flag display_errors off
