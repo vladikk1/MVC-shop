@@ -6,7 +6,7 @@ class SiteController
 
     public function actionIndex(){
 
-        require_once "ROOT . '/views";
+        require_once(ROOT . '/view/site/index.php');
 
 
     }
