@@ -12,9 +12,7 @@ class UserController
     {
         // Переменные для формы
         $name = false;
-        $sname = false;
-        $fname = false;
-        $tnumber = false;
+        $phone = false;
         $email = false;
         $password = false;
         $result = false;
@@ -27,23 +25,23 @@ class UserController
             $phone = $_POST['phone'];
             $email = $_POST['email'];
             $password = $_POST['password'];
-            var_dump($_POST);
+
+            $result = User::register($name,$phone,$email,$password);
 
         }
 
         // Подключаем вид
         require_once(ROOT . '/view/user/register.php');
+
         return true;
     }
 
-        public function actionIndex(){
 
-        echo "Привет из userController";
-
-        }
         public function actionLogin(){
             require_once(ROOT . '/view/user/login.php');
+            return true;
     }
+
 
 
 }

@@ -1,7 +1,7 @@
 <?php
 
 return array(
-    'user'=> 'user/index',//class,method
+    //class,method
     'user/login'=>'user/login',
     'user/register'=>'user/register',
     'product'=>'product/list',

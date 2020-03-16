@@ -24,7 +24,7 @@ class Router
 
             if(preg_match("~$uriPattern~", $uri)){
                 $segments = explode("/",$path);
-                echo "<pre>";
+
 
                 $controllerName = array_shift($segments)."Controller";
                 $controllerName = ucfirst($controllerName);
