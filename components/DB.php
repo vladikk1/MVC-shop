@@ -4,7 +4,6 @@
 class DB
 {
 static function conection(){
-
 $conection = ROOT."/config/db_params.php";
 $include_conection = include($conection);
 

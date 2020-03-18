@@ -17,6 +17,7 @@ class UserController
         $password = false;
         $result = false;
 
+
         // Обработка формы
         if (isset($_POST['reg'])) {
             // Если форма отправлена
@@ -24,10 +25,19 @@ class UserController
             $name = $_POST['name'];
             $phone = $_POST['phone'];
             $email = $_POST['email'];
-            $password = $_POST['password'];
+            $password = md5($_POST['password']);
+            $role = 0;
+            $errors = false;
 
-            $result = User::register($name,$phone,$email,$password);
+            if(User::checkEmail($email)){
 
+                $errors[] = 'Такой имейл уже существует';
+
+            }
+
+            if ($errors  == false) {
+                $result = User::register($name, $phone, $email, $password,$role);
+            }
         }
 
         // Подключаем вид

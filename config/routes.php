@@ -7,8 +7,7 @@ return array(
     'product'=>'product/list',
     'news' => 'news/index',
     '' => 'site/index',
-
-
+    'admin'=>'admin/admin',
 
 );
 
