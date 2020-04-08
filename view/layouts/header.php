@@ -10,6 +10,11 @@
        <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <link href="/template/css/main.css" rel="stylesheet">
     <link href="https://fonts.googleapis.com/css?family=Open+Sans:300,400,700&display=swap" rel="stylesheet">
+    <style>
+        .header{
+            margin-bottom: 20px;
+        }
+    </style>
     <title>Document</title>
 </head>
 <header class="header">
@@ -33,12 +38,21 @@
                         <a href="" class="main__link">Фалеристика</a>
                     </li>
                     <li class="main__li">
-                        <a href="" class="main__link">Контакты</a>
+                        <a href="/cart/index" class="main__link">Корзина(<span class="cart-count"><? echo Cart::countItems();?></span>)</a>
                     </li>
                     <li class="main__li main__li_1">
-                        <a href="/view/user/register" class="main__link main__link1">Регистрация</a>
-                        <a href="/view/user/login" class="main__link main__link1">Вход</a>
+
+
                     </li>
+                    <?php if (User::isGuest()): ?>
+                        <li><a href="/user/cabinet/"><i class="main__link1"></i> Аккаунт</a></li>
+                        <li><a href="/user/logout/"><i class="main__link1"></i> Выход</a></li>
+                    <?php else: ?>
+                        <li><a href="/user/login/"><i class="main__link1"></i> Вход</a></li>
+                        <li><a href="/user/register/"><i class="main__link1"></i> Регистрация</a></li>
+
+                    <?php endif; ?>
+
                 </ul>
             </nav>
         </div>

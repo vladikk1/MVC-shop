@@ -3,12 +3,7 @@
 include ROOT . '/view/layouts/header.php';
 
 ?>
-<?php
 
-AdminController::
-
-
-?>
     <!doctype html>
     <html lang="en">
     <head>
@@ -26,7 +21,7 @@ AdminController::
 <div class="container">
     <div class="form__sinng-wrapper">
         <h2 class="sing-in-title">Вход на сайт</h2>
-        <form class="sing-in" action="#">
+        <form class="sing-in"   method="post">
             <input class="email-sing" type="email" name="email" placeholder="email" value="" required>
             <input class="password-sing" type="password" name="password" placeholder="password" value="" required>
             <input class="button-sing" type="submit" name="submit" value="Вход">

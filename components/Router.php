@@ -9,6 +9,7 @@ class Router
     public function __construct()
     {
         $routesPath = ROOT.'/config/routes.php';
+
         $this->routes = include ($routesPath);
     }
 
@@ -20,29 +21,34 @@ class Router
     public function run(){
 
         $uri = $this->getURI();
+
         foreach ($this->routes as $uriPattern => $path){
 
             if(preg_match("~$uriPattern~", $uri)){
-                $segments = explode("/",$path);
 
-
+                $internalRoute = preg_replace("~$uriPattern~",$path,$uri);
+                $segments = explode('/',$internalRoute);
                 $controllerName = array_shift($segments)."Controller";
                 $controllerName = ucfirst($controllerName);
-                $actionName =  "action".ucfirst(array_shift($segments));
+                $actionName =  'action'.ucfirst(array_shift($segments));
                 $parameters = $segments;
 
+                $controllerFile = ROOT.'/controllers/'.$controllerName.'.php';
 
-                $controllerFile = ROOT."/controler/".$controllerName.".php";
 
                 if(file_exists($controllerFile)){
 
-                    include_once ($controllerFile);
-
+                    include_once($controllerFile);
                 }
-                $contollerObject = new $controllerName;
-                $result = call_user_func_array(array($contollerObject,$actionName),$parameters);
-                if ($result != 0){break;}
 
+
+                $contollerObject = new $controllerName;
+
+                $result = call_user_func_array(array($contollerObject,$actionName),$parameters);
+
+                if ($result != null){
+                    break;
+                }
 
             }
 
